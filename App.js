@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator, Image, StatusBar } from 'react-native';
 import Weather from "./Weather";
 import { Status } from 'expo-background-fetch';
-import { LinearGradient } from 'react-native-svg';
 
 const API_KEYS = "93a377476260084f0e64c803951180a3";
 
@@ -50,11 +49,11 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <StatusBar hidden={true} />
         {isLoaded ? <Weather weatherName={name} temp={Math.floor(temp - 273.15)} city={city} /> :
-        <LinearGradient>
+          <View style={styles.loading}>
             <ActivityIndicator style={styles.progress} />
             <Text style={styles.loadingText}>Loading weather Info!</Text>
             {error ? <Text style={styles.errorText}>{error}</Text> : null}
-          </LinearGradient>}
+          </View>}
       </View>
     );
   }
@@ -65,7 +64,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2980B9',
+    backgroundColor: '#fff',
     justifyContent: 'flex-start',
     alignItems: 'stretch',
     flexDirection: 'row',
