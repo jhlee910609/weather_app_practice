@@ -50,6 +50,7 @@ const weatherCases = {
     }
 }
 
+// state 없는 컴포넌트는 함수형식으로 정의할 수 있음
 function Weather({ weatherName, temp, city }) {
     return (
         // Gradient Component
@@ -73,10 +74,11 @@ function Weather({ weatherName, temp, city }) {
     )
 }
 
+// 아래와 같이 propTypes 설정 가능 
 Weather.propTypes = {
     temp: PropTypes.number.isRequired,
     city: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    weatherName: PropTypes.string.isRequired
 }
 
 export default Weather;
