@@ -1,7 +1,7 @@
 import React, { Compoent } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ToastAndroid } from 'react-native';
 import { LinearGradient } from 'expo';
-import { IonIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import PropTypes from 'prop-types';
 
@@ -10,37 +10,43 @@ const weatherCases = {
         colors: ["#00C6FB", "#005BEA"],
         title: "Raining",
         subtitle: "for more info look outside!",
-        icon: 'ios-rainy'
+        icon: 'weather-rainy'
     },
     Clear: {
         colors: ["#FEF253", "#FF7300"],
         title: "Sunny!",
         subtitle: "Go outside!",
-        icon: 'ios-sunny'
+        icon: 'weather-sunny'
     },
     Thunderstorm: {
         colors: ["#00ECBC", "#007ADF"],
         title: "Thunderstorm in the house",
         subtitle: "Actually outside of the house",
-        icon: 'ios-thunderstorm'
+        icon: 'weather-lightning'
     },
     Clouds: {
         colors: ["#D7D2CC", "#304352"],
         title: "Clouds",
-        subtitle: "sad :(",
-        icon: 'ios-cloudy'
+        subtitle: "It's cloudy :(",
+        icon: 'weather-snowy-rainy'
     },
     Snow: {
         colors: ["#7DE2FC", "#B986E5"],
         title: "Cold!",
         subtitle: "Do you wanna build snowman~",
-        icon: 'ios-snowy'
+        icon: 'weather-snowy'
     },
     Haze: {
         colors: ["#89F7FE", "#66A6FF"],
         title: "Haze!",
+        subtitle: "Going to Picnic is bad :(",
+        icon: 'weather-hail'
+    },
+    Mist: {
+        colors: ["#89F7FE", "#66A6FF"],
+        title: "Mist!",
         subtitle: "Like a Mist!",
-        icon: 'ios-rainy'
+        icon: 'weather-hail'
     }
 }
 
@@ -51,9 +57,12 @@ function Weather({ weatherName, temp, city }) {
             colors={weatherCases[weatherName].colors}
             style={styles.container}>
             <View style={styles.upper}>
-                <Ionicons color="white" size={144} name={weatherCases[weatherName].icon} />
+                <MaterialCommunityIcons
+                color="white" size={130}
+                name={weatherCases[weatherName].icon} 
+                />
                 <Text style={styles.temp}>{temp}°</Text>
-                <Text style={styles.temp}>{city}</Text>
+                <Text style={styles.city}>{city}</Text>
             </View>
             <View style={styles.lower}>
                 <Text style={styles.title}>{weatherCases[weatherName].title}</Text>
@@ -94,6 +103,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         color: 'white',
         marginTop: 5,
+        fontWeight: "bold",
     },
     lower: {
         flex: 1,
@@ -105,7 +115,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         color: 'white',
         marginBottom: 5,
-        fontWeight: "300"
+        fontWeight: "bold"
     },
     subtitle: {
         fontSize: 20,
