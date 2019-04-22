@@ -59,7 +59,7 @@
 ##### 3.2. State (가변)
 - Props와 다르게 컴포넌트 **내부에 존재**
 - View의 시각적 효과와 관계가 큼
-- 특정 이벤트를 통해 데이터 변화 시, `setStat({})`를 활용해 state 변경
+- 특정 이벤트를 통해 데이터 변화 시, `setState({})`를 활용해 state 변경
 	- React Native의 특성으로 인해 자동 UI update 일어남
 
 
