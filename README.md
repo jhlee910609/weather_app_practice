@@ -10,7 +10,7 @@
 ### 2. 프로젝트 과정
 
 - 앱을 만들 때, 주로 사용하는 개념들을 간략하게 구현해보았다.
-  - `fetch`, `componet`, `style` 등
+  - `fetch`, `component`, `style` 등
 
 - 강좌 내용 및 간략한 정리는 아래 파일과 주석으로 간략하게 정리해두었다.
   - [정리 파일](https://github.com/jhlee910609/weather_app_practice/blob/master/docs/3_reactive_native(1).pdf)
